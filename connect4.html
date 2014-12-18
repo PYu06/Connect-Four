@@ -11,27 +11,29 @@
 <body>
   <div class="board">
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
     <div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
   </div>
+
+    <button onclick="dropCell('1')">Drop</button>
 
 </body>
 
@@ -49,12 +51,19 @@
   var createID=function(){
     var cells = document.querySelectorAll('[class^=column]>div')
     for (i in cells){
-      cells[i].id=i*1+1;
-      cells[i].innerHTML=i*1+1;
+      cells[i].id=i*1;
+      cells[i].className="empty"
+      cells[i].innerHTML=i*1;
     }
+  }
+
+  var dropCell=function(id){
+    document.getElementById(id).style.top="0";
   }
 
   createColumns();
   createID();
+
+
 </script>
 </html>
