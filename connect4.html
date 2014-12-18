@@ -1,0 +1,60 @@
+<!-- 42 divs w/ one container
+  tags/classes empty/filled & board-piece-color
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect4</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="board">
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+
+</body>
+
+<script type="text/javascript">
+
+
+  var createColumns=function(){
+    var columns = document.querySelectorAll(".board>div")
+    for (i in columns){
+      columns[i].className="column" + (i*1+1);
+
+    }
+  }
+
+  var createID=function(){
+    var cells = document.querySelectorAll('[class^=column]>div')
+    for (i in cells){
+      cells[i].id=i*1+1;
+      cells[i].innerHTML=i*1+1;
+    }
+  }
+
+  createColumns();
+  createID();
+</script>
+</html>

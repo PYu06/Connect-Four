@@ -1,0 +1,12 @@
+.board{
+  width: 50%;
+  height: 50%;
+  border: 2px solid black;
+}
+html,body {
+  height: 100%;
+}
+
+.board>div{
+  display: inline-block;
+}
