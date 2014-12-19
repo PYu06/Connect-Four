@@ -6,6 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Connect4</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -33,37 +34,7 @@
     </div>
   </div>
 
-    <button onclick="dropCell('1')">Drop</button>
-
+      <button onclick="dropCell('1')">Drop</button>
+  <script type="text/javascript" src="connect4.js"></script>
 </body>
-
-<script type="text/javascript">
-
-
-  var createColumns=function(){
-    var columns = document.querySelectorAll(".board>div")
-    for (i in columns){
-      columns[i].className="column" + (i*1+1);
-
-    }
-  }
-
-  var createID=function(){
-    var cells = document.querySelectorAll('[class^=column]>div')
-    for (i in cells){
-      cells[i].id=i*1;
-      cells[i].className="empty"
-      cells[i].innerHTML=i*1;
-    }
-  }
-
-  var dropCell=function(id){
-    document.getElementById(id).style.top="0";
-  }
-
-  createColumns();
-  createID();
-
-
-</script>
 </html>
