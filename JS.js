@@ -39,23 +39,30 @@
   }
 
   var grapPic=function(e){
-   if (player1.img===""){
-    player1.img="./image/"+ e.target.id +".png"
-  }else if (player2.img===""){
-    player2.img="./image/" + e.target.id + ".png"
-  }
-  }
-
-  var charactersText=function(){
     var text=document.querySelector("#characters > p")
     if (player1.img===""){
-      text.innerHTML="Choose character for Player 1";
-    }else if (player2.img===""){
+      player1.img="./image/"+ e.target.id +".png";
       text.innerHTML="Choose character for Player 2";
-    }else{
+    }
+    else if (player2.img===""){
+      player2.img="./image/" + e.target.id + ".png";
       text.innerHTML="Game Begins!!!";
     }
+    else {
+    }
+
   }
+
+  // var charactersText=function(){
+  //   var text=document.querySelector("#characters > p")
+  //   if (player1.img===""){
+  //     text.innerHTML="Choose character for Player 1";
+  //   }else if (player2.img===""){
+  //     text.innerHTML="Choose character for Player 2";
+  //   }else{
+  //     text.innerHTML="Game Begins!!!";
+  //   }
+  // }
 
   var activePlayer={
     lastPlayer: player2,
@@ -172,6 +179,6 @@
   createColumns();
   createID();
   findEmptyCell();
-  charactersText();
+  // charactersText();
   assignChar();
 
