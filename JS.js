@@ -23,11 +23,13 @@ window.onload = function () {
   }
 
   var player1={
-    img:'./image/stewie.jpg'
+    img:'./image/stewie.jpg',
+    player: "one"
   }
 
   var player2={
-    img:'./image/brian.jpg'
+    img:'./image/brian.jpg',
+    player: "two"
   }
 
   var activePlayer={
@@ -48,7 +50,8 @@ window.onload = function () {
       var emptyCell = $(this).find(".empty").last()
       var id=emptyCell.attr("id");
       dropCell(id);
-      emptyCell.attr("class","active");
+      emptyCell.attr("class", activePlayer.lastPlayer.player);
+      // console.log(activePlayer.lastPlayer); 
   });
   }
 
