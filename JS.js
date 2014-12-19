@@ -41,9 +41,9 @@ window.onload = function () {
 
   var grapPic=function(e){
    if (player1.img===""){
-    player1.img="./image/"+ e.target.id +".png"
+    player1.img="./image/"+ e.target.className +".png"
   }else if (player2.img===""){
-    player2.img="./image/" + e.target.id + ".png"
+    player2.img="./image/" + e.target.className + ".png"
   }
   }
 
@@ -85,6 +85,7 @@ window.onload = function () {
       emptyCell.attr("class",activePlayer.lastPlayer.name);
   });
   }
+
 
 
 
