@@ -173,6 +173,26 @@
     return test;
   }
 
+  // return Ids from a Column Number
+  var getIdsFromColumn = function(colNum){
+    var selector = ".column" + colNum + " div";
+    var childObjects = document.querySelectorAll(selector);
+    var arr = [];
+    for (var i = 0; i < childObjects.length; i++){
+      arr.push(childObjects[i].id)
+    }
+    return(arr);
+  }
+
+  // return Ids from a Row Number
+  var getIdsFromRow = function(rowNum){
+    var arr = []
+    for (var i = 1; i <= 7; i++){
+        arr.push(getIdsFromColumn(i)[rowNum-1]);
+      }
+    return(arr);
+  }
+
   var board = createBoard();
 
 
