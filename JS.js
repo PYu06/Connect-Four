@@ -71,26 +71,42 @@ window.onload = function () {
     }
   }
 
-   var dropCell=function(id){
+  var dropCell=function(id){
     var cell = document.getElementById(id)
     cell.innerHTML='<img src='+ activePlayer.currentPlayer().img + '>';
     cell.style.top="0";
   }
 
-    var findEmptyCell = function() {
+  var findEmptyCell = function() {
     $( '[class^=column]' ).click(function() {
       var emptyCell = $(this).find(".empty").last()
       var id=emptyCell.attr("id");
-      dropCell(id);
-      emptyCell.attr("class",activePlayer.lastPlayer.name);
+    dropCell(id);
+    emptyCell.attr("class",activePlayer.lastPlayer.name);
   });
   }
 
+  //  get all ids of certain player
+  var getPlayerCellIds = function() {
+    var slots = document.querySelectorAll(activePlayer.lastPlayer.name)
+    var cellIds = []
+    for (var i = 0; i < slots.length; i++) {
+      cellIds.push(slots[i].id)
+    }
+    return cellIds
+  }
 
+  var checkColumn = function() {
+    var ids = getPlayerCellIds();
+    for (var i =0;  i < ids.length; i++) {
+      arr[i] / 6;
+    }
+  }
 
   createColumns();
   createID();
   findEmptyCell();
   charactersText();
   assignChar();
+  getPlayerCellIds();
 }
