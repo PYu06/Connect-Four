@@ -9,16 +9,34 @@ body{
   display: inline-block;
 }
 
-#characters>div{
+#characters>button{
   width: 100px;
   height: 100px;
-  background-color: black;
+  background-color: grey;
+  border-radius: 10px;
+  border: solid 10px grey;
+  padding: 0;
+  margin: 5px;
 }
 
-#characters>div>img{
-  width: 100%;
-  height: 100%;
+#characters>button>img{
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  position: relative;
+  right: 100px;
+  border: solid 1px black;
 }
+
+/*#characters>button:hover{
+  position: absolute;
+  display: none;
+}*/
+
+/*#characters>button>img:hover{
+  position: relative;
+  right: 100px;
+}*/
 
 .board{
   width: 700px;
