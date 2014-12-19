@@ -33,11 +33,11 @@ window.onload = function () {
   var activePlayer={
     lastPlayer: player2,
     currentPlayer: function(){
-      if (this.lastPlayer==player2){
+      if (this.lastPlayer == player2){
         this.lastPlayer=player1;
         return player1;
       }else{
-        this.lastPlayer==player2;
+        this.lastPlayer=player2;
         return player2;
       }
     }
@@ -49,7 +49,6 @@ window.onload = function () {
       var id=emptyCell.attr("id");
       dropCell(id);
       emptyCell.attr("class","active");
-
   });
   }
 
