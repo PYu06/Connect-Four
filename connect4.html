@@ -6,19 +6,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Connect4</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <aside>
+    <div id="characters">
+      <p></p>
+      <button id="roger">Select<img src='image/Roger.png'></button>
+      <button id="stewie">Select<img src='image/stewie.png'></button>
+      <button id="archer">Select<img src='image/archer.png'></button>
+      <button id="michelangelo">Select<img src='image/michelangelo.png'></button>
+      <button id="brian">Select<img src='image/brian.png'></button>
+      <button id="tommy">Select<img src='image/tommy.png'></button>
+    </div>
+  </aside>
+
   <div class="board">
     <div>
       <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
+
     <div>
       <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
+
     <div>
       <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
+
     <div>
       <div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
@@ -33,37 +49,9 @@
     </div>
   </div>
 
-    <button onclick="dropCell('1')">Drop</button>
 
 </body>
 
-<script type="text/javascript">
+<script type="text/javascript" src='./JS.js'></script>
 
-
-  var createColumns=function(){
-    var columns = document.querySelectorAll(".board>div")
-    for (i in columns){
-      columns[i].className="column" + (i*1+1);
-
-    }
-  }
-
-  var createID=function(){
-    var cells = document.querySelectorAll('[class^=column]>div')
-    for (i in cells){
-      cells[i].id=i*1;
-      cells[i].className="empty"
-      cells[i].innerHTML=i*1;
-    }
-  }
-
-  var dropCell=function(id){
-    document.getElementById(id).style.top="0";
-  }
-
-  createColumns();
-  createID();
-
-
-</script>
 </html>
