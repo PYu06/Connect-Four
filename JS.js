@@ -1,3 +1,4 @@
+window.onload = function () {
   var createColumns=function(){
     var columns = document.querySelectorAll(".board>div")
     for (i in columns){
@@ -42,6 +43,17 @@
     }
   }
 
+    var findEmptyCell = function() {
+    $( '[class^=column]' ).click(function() {
+      var emptyCell = $(this).find(".empty").last()
+      var id=emptyCell.attr("id");
+      dropCell(id);
+      emptyCell.attr("class","active");
+
+  });
+  }
+
   createColumns();
   createID();
-
+  findEmptyCell();
+}
