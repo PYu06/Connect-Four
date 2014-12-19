@@ -2,15 +2,34 @@ body{
   box-sizing: border-box;
 }
 
+#characters{
+  width: 10%;
+  height: 600px;
+  float: right;
+  display: inline-block;
+}
+
+#characters>div{
+  width: 50px;
+  height: 50px;
+  background-color: black;
+}
+
+#characters>div>img{
+  width: 100%;
+  height: 100%;
+}
+
 .board{
-  width: 50%;
-  height: 50%;
+  width: 700px;
+  height: 600px;
   border: 2px solid black;
 }
 html,body {
   height: 100%;
 }
 
+/*column*/
 .board>div{
   overflow: hidden;
   float: left;
@@ -19,11 +38,23 @@ html,body {
   height: 100%;
 }
 
+/*cell*/
 .board>div>div{
   position: relative;
   border: dotted 1px black;
-  width: 100%;
-  height: 15.8%;
+  width: 98px;
+  height: 98px;
   top:-100%;
+  text-align: center;
+  transition: 1s;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/*image*/
+.board>div>div>img{
+   height: 100%;
+   position: relative;
+   left: -15px;
 }
 
