@@ -1,12 +1,55 @@
+@font-face {
+  font-family: cartoon;
+  src: url(cartoonfont.ttf);
+}
+
 body{
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: cartoon;
+  text-align: center;
+  color: red;
+  margin: auto;
+  /*position:fixed;*/
+  position: absolute;
+  /*position: static;*/
+  width: 100%;
+  height: 100%;
+  margin-top: -137px;
+  /*margin-left: -15px*/
+ }
+
+.explosion {
+  margin:auto;
+  /*background-color: black;*/
+  width: 100%;
+  text-align: center;
+  height:20%;
+}
+
+.explosion img{
+  height:105%;
+  width: 40%;
+  margin-left:2%;
+  position: relative;
+
+}
+
+
+
+
 #characters{
   width: 10%;
-  height: 600px;
+  /*height: 600px;*/
   float: right;
   display: inline-block;
+  margin: -3% 4% 0% 0%;
+  /*border: 1px solid black;*/
+  text-align: center;
+  margin-right: 10%;
+  font-family:"Comic Sans MS", cursive, sans-serif;
 }
 
 #characters>button{
@@ -23,10 +66,12 @@ body{
   width: 80%;
   height: 80%;
   border-radius: 10px;
-  position: relative;
-  right: 100px;
+  /*position: relative;*/
+  /*right: 100px;*/
   border: solid 1px black;
 }
+
+
 
 /*#characters>button:hover{
   position: absolute;
@@ -39,34 +84,46 @@ body{
 }*/
 
 .board{
-  width: 700px;
-  height: 600px;
+  width: 970px;
+  height: 615px;
   border: 2px solid black;
+  background-color: blue;
+  text-align: center;
+  margin-left: 7%;
+  margin-top: 5%;
 }
+
 html,body {
   height: 100%;
 }
+
+
 
 /*column*/
 .board>div{
   overflow: hidden;
   float: left;
   display: block;
-  width: 14.28%;
+  width: 13%;
   height: 100%;
+  border: 1px solid black
+
 }
+
 
 /*cell*/
 .board>div>div{
   position: relative;
   border: dotted 1px black;
   width: 98px;
-  height: 98px;
+  height: 100px;
   top:-100%;
   text-align: center;
   transition: 1s;
   overflow: hidden;
   border-radius: 50%;
+  margin: auto;
+  vertical-align: center
 }
 
 /*image*/
@@ -75,3 +132,11 @@ html,body {
    position: relative;
 }
 
+.board .column1 {
+  margin-left: 33px;
+  border-left: 2px solid black
+}
+
+.board .column7 {
+  border-right: 2px solid black
+}
