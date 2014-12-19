@@ -82,10 +82,14 @@
       var id=emptyCell.attr("id");
       dropCell(id);
       emptyCell.attr("class",activePlayer.lastPlayer.name);
+      updateBoard(id);
+      checkWinner(activePlayer.lastPlayer.name);
   });
   }
 
-  //
+    var updateBoard=function(id){
+      board[id*1]=activePlayer.lastPlayer.name;
+    };
 
   var createBoard = function(){
     var arr = [],
@@ -100,7 +104,7 @@
   var checkAllColumns = function(board_arr,player){
     var range = [0,6],
       test=false;
-    while (range[0] < board_arr.length){
+    while (range[0] < board_arr.length && test === false){
       var col = board_arr.slice(range[0],range[1]);
       console.log(col);
       if (connectFour(col,player)){test = true};
@@ -127,21 +131,21 @@
       index=0,
       n=id[index],
       test=false;
-    while (index <= id.length){
+    while (index <= id.length && test === false){
       var diag=[],
         min=Math.floor(id[index]/6)*6+5;
       while (min <= n+5 && n < 42){
-        diag.push(n);
+        diag.push(board_arr[n]);
         n+=5;
         min+=6;
       }
       index+=1;
       n=id[index];
       min=Math.floor(id[index]/6)*6+5;
-      if (diag.connectFour(player)){test = true};
+      if (connectFour(diag,player)){test = true};
       console.log(diag);
     }
-
+    return test
   }
 
   var all=function(array,match){ // return true if all element in array == match
@@ -168,10 +172,22 @@
 
   var board = createBoard();
 
+  var checkWinner=function(player){
+    if (checkAllRows(board,player) === true){
+      alert(activePlayer.lastPlayer.name + "Won")
+    }else if (checkAllColumns(board,player)===true){
+      alert(activePlayer.lastPlayer.name + "Won")
+    }else if (checkAllDiag(board,player)===true){
+      alert(activePlayer.lastPlayer.name + "Won")
+    }
+  };
+
 
   createColumns();
   createID();
   findEmptyCell();
   charactersText();
   assignChar();
+
+
 
