@@ -39,23 +39,29 @@
   }
 
   var grapPic=function(e){
-   if (player1.img===""){
-    player1.img="./image/"+ e.target.id +".png"
-  }else if (player2.img===""){
-    player2.img="./image/" + e.target.id + ".png"
-  }
-  }
-
-  var charactersText=function(){
     var text=document.querySelector("#characters > p")
     if (player1.img===""){
-      text.innerHTML="Choose character for Player 1";
-    }else if (player2.img===""){
+      player1.img="./image/"+ e.target.className +".png"
+      player1.name=e.target.className;
       text.innerHTML="Choose character for Player 2";
-    }else{
+    }
+    else if (player2.img===""){
+      player2.img="./image/" + e.target.className + ".png"
+      player2.name=e.target.className;
       text.innerHTML="Game Begins!!!";
     }
   }
+
+  // var charactersText=function(){
+  //   var text=document.querySelector("#characters > p")
+  //   if (player1.img===""){
+  //     text.innerHTML="Choose character for Player 1";
+  //   }else if (player2.img===""){
+  //     text.innerHTML="Choose character for Player 2";
+  //   }else{
+  //     text.innerHTML="Game Begins!!!";
+  //   }
+  // }
 
   var activePlayer={
     lastPlayer: player2,
@@ -113,16 +119,37 @@
     return test;
   }
 
+  // var checkAllRows = function(board_arr,player){
+  //   var rowNum=0,
+  //     test=false;
+  //   while (rowNum < 6 && test === false){
+  //     var row = [];
+  //     for (i in board_arr){ if (i%6 === rowNum){row.push(board_arr[i])};};
+  //     if (connectFour(row,player)){test=true};
+  //     rowNum++;
+  //   }
+  //   return test;
+  // }
+
+
   var checkAllRows = function(board_arr,player){
-    var rowNum=0,
-      test=false;
-    while (rowNum < 6 && test === false){
-      var row = [];
-      for (i in board_arr){ if (i%6 === rowNum){row.push(board_arr[i])};};
+    var rowNum=1,
+        test=false;
+    while (rowNum < 7 && test === false){
+      var row = getIdsFromRow(board_arr,rowNum);
       if (connectFour(row,player)){test=true};
       rowNum++;
     }
     return test;
+  }
+
+  // return Ids from a Row Number
+  var getIdsFromRow = function(board,rowNum){
+    var arr = []
+    for (var i = 1; i <= 7; i++){
+        arr.push(board[getIdsFromColumn(i)[rowNum-1]]);
+      }
+    return(arr);
   }
 
   var checkAllDiag = function(board_arr,player){
@@ -174,19 +201,59 @@
 
   var checkWinner=function(player){
     if (checkAllRows(board,player) === true){
-      alert(activePlayer.lastPlayer.name + "Won")
+      winnerAnimation();
     }else if (checkAllColumns(board,player)===true){
-      alert(activePlayer.lastPlayer.name + "Won")
+      winnerAnimation();
     }else if (checkAllDiag(board,player)===true){
-      alert(activePlayer.lastPlayer.name + "Won")
+      winnerAnimation();
     }
   };
 
+  var winnerAnimation=function(){
+    document.querySelector("#message").style.zIndex="1";
+    var popup = document.querySelector("#popup")
+        popup.style.right="0";
+        var name=activePlayer.lastPlayer.name
+        popup.innerHTML="Mic drop!!! " + name.replace(name[0],name[0].toUpperCase()) + " WON!!..<br> Yeah....."
+        // winningShit();
+        textAnimate();
+        setInterval(textAnimate(),1200)
+        alert("I'm blocking yo text mang");
+        location.reload ();
+  }
+
+  // var winningShit = function(){
+  //   textAnimate();
+  //   location.reload();
+  // }
+
+   // return Ids from a Column Number
+  var getIdsFromColumn = function(colNum){
+    var selector = ".column" + colNum + " div";
+    var childObjects = document.querySelectorAll(selector);
+    var arr = [];
+    for (var i = 0; i < childObjects.length; i++){
+      arr.push(childObjects[i].id*1)
+    }
+    return(arr);
+  }
+
+
+    var times = 2;
+    function textAnimate(){
+      var popup=document.querySelector("#popup")
+          popup.style.fontSize=times*40+"px";
+          popup.style.paddingTop="20%";
+      if (times > 10) {clearInterval(textAnimate)};
+      times++;
+
+    }
 
   createColumns();
   createID();
   findEmptyCell();
-  charactersText();
+  // charactersText();
+  // charactersText();
   assignChar();
 
 
